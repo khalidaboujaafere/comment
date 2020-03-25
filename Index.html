@@ -1,0 +1,307 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>كيف كان عملنا</title>
+		<link href="https://fonts.googleapis.com/css?family=Voltaire" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+	<style>
+	
+body {
+	font-family: 'Voltaire', sans-serif;
+	font-size:24px;
+	margin:0 0 0 0;
+	background-color:#ffffff;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+#main {
+	position:absolute;
+	top:0;
+	width:100%;
+	margin:auto;
+	height:100%;
+	overflow:hidden;
+}
+#title {
+	position:relative;
+	width:100%;
+	height:60px;
+	font-size:27px;
+	font-weight:bold;
+	padding:5px 0 0 0;
+	text-align:center;
+	background-image:url(https://i.imgur.com/yBO22nR.png);
+	background-repeat:repeat-x;
+	z-index:200;
+}
+#subtitle {
+	position:relative;
+	width:100%;
+	height:45px;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 0 0 0;
+	margin:-7px 0 0 0;
+	text-align:center;
+}
+
+button {
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	font-size:18px;
+	font-weight:bold;
+	padding:7px 15px 7px 15px;
+	border:2px solid #202020;
+	background-color:#ffffff;
+	color:#202020;
+	cursor:pointer;
+	margin:10px 0 0 0;
+	border-radius:25px;
+	display:none;
+}
+button:hover {
+	background-color:#ff6f62;
+	border:2px solid #202020;
+	color:#ffffff;
+}
+a,a:visited {
+	color:grey;
+	font-weight:bold;
+	text-decoration:none;
+}
+.questions {
+	position:absolute;
+	width:260px;
+	height:auto;
+	background-color:lightyellow;
+	color:#000000;
+	text-align:center;
+	border:2px solid #000000;
+	z-index:100;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+	padding:5px 0 5px 0;
+	display:none;
+}
+.check {
+	position:absolute;
+	width:260px;
+	height:auto;
+	background-color:lightgreen;
+	color:#000000;
+	text-align:center;
+	border:2px solid darkgreen;
+	z-index:100;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+	padding:5px 0 5px 0;
+	display:none;
+}
+.dontcheck {
+	position:absolute;
+	width:260px;
+	height:auto;
+	background-color:pink;
+	color:#000000;
+	text-align:center;
+	border:2px solid darkred;
+	z-index:100;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+	padding:5px 0 5px 0;
+	display:none;
+}
+.yesno {
+	position:absolute;
+	bottom:-20px;
+	width:40px;
+	height:35px;
+	padding:5px 0 0 0;
+	text-align:center;
+	border:2px solid #000000;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	border-radius:50%;
+	cursor:pointer;
+	display:none;
+}
+.yes {
+	left:-20px;
+	background-color:#aeb975;
+}
+.no {
+	right:-20px;
+	background-color:#ce887b;
+}
+.lineyes {
+	position:absolute;
+	bottom:3px;
+	right:257px;
+	border:2px solid #000000;
+	width:0;
+	height:0;
+
+	-webkit-transform-origin: right top;
+	-moz-transform-origin: right top;
+	-ms-transform-origin: right top;
+	-o-transform-origin: right top;
+	transform-origin: right top;
+	-ms-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	z-index:99;
+}
+.lineno {
+	position:absolute;
+	bottom:3px;
+	left:257px;
+	border:2px solid #000000;
+	width:50;
+	height:0;
+
+	-webkit-transform-origin: left top;
+	-moz-transform-origin: left top;
+	-ms-transform-origin: left top;
+	-o-transform-origin: left top;
+	transform-origin: left top;
+	-ms-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	z-index:99;
+}
+
+	</style>
+		<div id="main">
+			<button id="again">أرآكم</button>
+			
+		</div>
+		<div id="title">
+		 خدمتنا
+			<div id="subtitle">
+				
+			</div>
+		</div>
+		<script type="text/javascript">
+		
+var current = 0;
+var ww = 0;
+var wh = 0;
+var qtop = 0;
+var l;
+var html;
+var flow = [];
+flow.push(["هل تعجبتك خدمتنا<br>على هذا الموقع ؟",1,2,""]);
+flow.push(["هل تستفد من <br> خدمتنا على هذا الموقع", 16,5,""]);
+flow.push(["هل هناك سلبيات <br>في خدامتنا؟",17,3 ,""]);
+flow.push(["هل لدينا خلل على خدماتنا",18,4,""]);
+flow.push(["هل تريد تحسين <br>هذا ؟",20,19,""]);
+flow.push(["هل ترغب في اضافة<br>ميزة جديدة<br>",21,6,""]);
+flow.push(["هل انت غير راضي<br>عن خدامتنا<br>الجديد ؟",21,18,""]);
+flow.push(["",15,14,""]);
+flow.push(["",13,9,""]);
+flow.push(["",13,10,""]);
+flow.push(["",13,18,""]);
+flow.push(["",20,16,""]);
+flow.push(["",21,18,""]);
+flow.push(["",13,18,""]);
+flow.push(["",18,22,""]);
+flow.push(["",19,18,""]);
+
+flow.push(["END_ok",0,0,"شكرا لك على مشاركتنا بهذا التعليق<br>"]);
+flow.push(["END_ok",0,0,"اذا لاحظت خلل على موقعنا<br>يمكنك إخبارنا بهذا"]);
+flow.push(["END_ok",0,0,"اذا لاحظت شيء مريب<br>رجاءا إخبرنا بهذا"]);
+flow.push(["END_ok",0,0,"شكرا لك على تفهمك<br>سنكتشف الخلل<br>ونقوم بإصلاحه"]);
+flow.push(["END_ok",0,0,"كيف تريد تحسين هذا<br>يمكنك الاتصال بفريق الدعم<br>Exemple@support.email."]);
+flow.push(["END_ok",0,0,"شكرا على اقتراحك سنبحث في الأمر"]);
+$(document).ready(function() {
+	$("body").delegate("#again","click",function() {
+		$("#again").hide();
+		$(".questions,.check,.dontcheck").remove();
+		show(0);
+	});
+	$("body").delegate(".yesno","click",function() {
+		classname = ($(this).attr("class").split(" "))[1];
+		$(".yesno").fadeTo(300,0,function() {
+			$(".yesno").remove();
+		});
+		h = $(this).parent().height()+11;
+		next = $(this).data("index");
+		rand = Math.floor(Math.random()*5000);
+		$(this).parent().append("<div id='l_"+rand+"' class='line"+classname+"'></div>");
+		if (classname=="yes") {
+			$(".questions").stop().animate({
+				"left":"+=201px",
+				"top":"-="+(71+h)+"px"
+			},600,"linear",function() {
+			});
+			$("#l_"+rand).stop().animate({
+				"width":"105px"
+			},600,"linear",function() {
+				show(next);
+			});
+		} else {
+			$(".questions").stop().animate({
+				"left":"-=201px",
+				"top":"-="+(71+h)+"px"
+			},600,"linear",function() {
+			});
+			$("#l_"+rand).stop().animate({
+				"width":"105px"
+			},600,"linear",function() {
+				show(next);
+			});
+		}
+	});
+	ww = $(window).width();
+	wh = $(window).height();
+	show(0);
+});
+function show(c) {
+	current = c;
+	var f = flow[c];
+	var q = f[0];
+	if (q.substr(0,3)=="END") {
+		q = q.substr(4);
+		comment = f[3];
+		l = parseInt((ww-264)/2);
+		html = "<div id='q_"+c+"' class='"+(q=="no"?"dontcheck":"check")+"' style='top:"+qtop+"px;left:"+l+"px;'>"+comment+"</div>";
+		$("#main").append(html);
+		$("#q_"+c).fadeTo(400,1,function() {
+			$("#again").show();
+		});
+	} else {
+		var yes = f[1];
+		var no = f[2];
+		var nl = q.split("<br>").length;
+		if (qtop===0) {
+			qtop = parseInt((wh-(23)*nl)/2)-60;
+		}
+		l = parseInt((ww-264)/2);
+		rand = Math.floor(Math.random()*5000);
+		html = "<div id='q_"+rand+"' class='questions' style='top:"+qtop+"px;left:"+l+"px;'>"+q+"<div class='yesno yes' data-index='"+yes+"'>نعم</div><div class='yesno no' data-index='"+no+"'>لا</div></div>";
+		$("#main").append(html);
+		$("#q_"+rand).fadeTo(400,1,function() {
+			$(".yesno").fadeTo(300,1,function() {
+			});
+		});
+	}
+}
+
+		</script>
+	</body>
+</html>
